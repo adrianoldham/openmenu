@@ -150,8 +150,8 @@ OpenMenu.Item = Class.create({
         if (element != null) {
             levelDifference -= element.level;
         }
-        
-        return levelDifference;
+        console.log(levelDifference)
+        return levelDifference - 1;
     },
     
     // Toggles the element open and closed.
