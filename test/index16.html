@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>index</title>
+    <script type="text/javascript" charset="utf-8" src="../lib/prototype.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../lib/scriptaculous.js?load=effects"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/openmenu.js"></script>
+
+	<style type="text/css" media="screen">
+		#menu a.active {
+			font-weight: bold;
+		}
+		
+		#menu a.opened {
+			font-style: italic;
+		}
+		
+		#menu {
+			margin: 0;
+			padding: 0;
+		}
+		
+		#menu li {
+			list-style-type: none;
+			padding-left: 16px;
+			position: relative;
+		}
+		
+		#menu div.widget {
+			width: 10px;
+			height: 10px;
+			border: 1px solid black;
+			background-color: #000;
+			position: absolute;
+			left: 0;
+			top: 2px;
+			cursor: pointer;
+		}
+		
+		#menu div.expanded {
+			border-color: 1px solid white;
+			background-color: #fff;
+		}
+	</style>
+</head>
+
+<body>
+
+<ul id="menu">
+	<li>
+		<a href="file://localhost/Users/edmondleung/Documents/JavaScript%20Projects/openmenu/trunk/openmenu/test/index.html">Technology</a>
+		<ul>
+			<li>
+				<a href="file://localhost/Users/edmondleung/Documents/JavaScript%20Projects/openmenu/trunk/openmenu/test/index2.html">Apple</a>
+				<ul>
+					<li><a href="file://localhost/Users/edmondleung/Documents/JavaScript%20Projects/openmenu/trunk/openmenu/test/index3.html">Desktops</a></li>
+					<li>
+						<a href="file://localhost/Users/edmondleung/Documents/JavaScript%20Projects/openmenu/trunk/openmenu/test/index4.html">Notebooks</a>
+						<ul>
+							<li><a href="file://localhost/Users/edmondleung/Documents/JavaScript%20Projects/openmenu/trunk/openmenu/test/index5.html">Macbook</a></li>
+							<li><a href="file://localhost/Users/edmondleung/Documents/JavaScript%20Projects/openmenu/trunk/openmenu/test/index6.html">Macbook Pro</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li><a href="file://localhost/Users/edmondleung/Documents/JavaScript%20Projects/openmenu/trunk/openmenu/test/index7.html">Design</a></li>
+			<li><a href="file://localhost/Users/edmondleung/Documents/JavaScript%20Projects/openmenu/trunk/openmenu/test/index8.html">Gadgets</a></li>
+			<li><a href="file://localhost/Users/edmondleung/Documents/JavaScript%20Projects/openmenu/trunk/openmenu/test/index9.html">Hardware</a></li>
+		</ul>
+	</li>
+	<li>
+		<a href="file://localhost/Users/edmondleung/Documents/JavaScript%20Projects/openmenu/trunk/openmenu/test/index10.html">Technology</a>
+		<ul>
+			<li>
+				<a href="file://localhost/Users/edmondleung/Documents/JavaScript%20Projects/openmenu/trunk/openmenu/test/index11.html">Apple</a>
+				<ul>
+					<li>
+						<a href="file://localhost/Users/edmondleung/Documents/JavaScript%20Projects/openmenu/trunk/openmenu/test/index12.html">Desktops</a>
+						<ul>
+							<li><a href="file://localhost/Users/edmondleung/Documents/JavaScript%20Projects/openmenu/trunk/openmenu/test/index13.html">iMac</a></li>
+							<li><a href="file://localhost/Users/edmondleung/Documents/JavaScript%20Projects/openmenu/trunk/openmenu/test/index14.html">Mac Pro</a></li>
+						</ul>	
+					</li>
+					<li>
+						<a href="file://localhost/Users/edmondleung/Documents/JavaScript%20Projects/openmenu/trunk/openmenu/test/index15.html">Notebooks</a>
+						<ul>
+							<li><a href="file://localhost/Users/edmondleung/Documents/JavaScript%20Projects/openmenu/trunk/openmenu/test/index16.html">Macbook</a></li>
+							<li><a href="file://localhost/Users/edmondleung/Documents/JavaScript%20Projects/openmenu/trunk/openmenu/test/index17.html">Macbook Pro</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li><a href="file://localhost/Users/edmondleung/Documents/JavaScript%20Projects/openmenu/trunk/openmenu/test/index18.html">Design</a></li>
+			<li><a href="file://localhost/Users/edmondleung/Documents/JavaScript%20Projects/openmenu/trunk/openmenu/test/index19.html">Gadgets</a></li>
+			<li><a href="file://localhost/Users/edmondleung/Documents/JavaScript%20Projects/openmenu/trunk/openmenu/test/index20.html">Hardware</a></li>
+		</ul>
+	</li>
+</ul>
+
+</body>
+
+<script type="text/javascript" charset="utf-8">
+    function runTest() {
+        var menu = new OpenMenu("menu");
+    }
+
+    Event.observe(window, "load", runTest);
+</script>
+
+</html>
