@@ -31,13 +31,18 @@ var OpenMenu = Class.create({
         // search through ALL descendants and return the one with
         // href that matches the specified href
         this.element.descendants().each(function(descendant) {
-            if (descendant.anchor.href == href) {
+            if (this.cleanHref(descendant.anchor.href) == this.cleanHref(href)) {
                 element = descendant;
             }
-        });
+        }.bind(this));
         
         // only open one if one is found
         if (element) element.open(!this.options.animateOnLoad, true);
+    },
+    
+    // Makes the path relative
+    cleanHref: function(href) {
+        return href.replace(new RegExp('.+?://[^/]+'), "");
     }
 });
 
