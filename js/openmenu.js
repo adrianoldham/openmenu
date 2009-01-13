@@ -9,7 +9,8 @@ var OpenMenu = Class.create({
         widgetClass: "widget",
         widgetExpandedClass: "expanded",
         singleMode: true,
-        animateOnLoad: false
+        animateOnLoad: false,
+        pathPrefix: ""
     },
     
     initialize: function(element, options) {
@@ -42,7 +43,7 @@ var OpenMenu = Class.create({
     
     // Makes the path relative
     cleanHref: function(href) {
-        return href.replace(new RegExp('.+?://[^/]+'), "");
+        return this.options.pathPrefix + href.replace(new RegExp('.+?://[^/]+'), "");
     }
 });
 
