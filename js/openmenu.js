@@ -104,7 +104,7 @@ OpenMenu.Item = Class.create({
         if (this.hasChildren() && !this.isRoot()) {
             this.widget = new Element('div', { 'class': this.options.widgetClass });
             this.widget.observe('click', this.toggle.bind(this));
-            this.element.insert(this.widget);
+            this.element.insert({ top: this.widget });
         }
     },
     
@@ -150,7 +150,7 @@ OpenMenu.Item = Class.create({
         if (element != null) {
             levelDifference -= element.level;
         }
-        console.log(levelDifference)
+        
         return levelDifference - 1;
     },
     
@@ -178,7 +178,8 @@ OpenMenu.Item = Class.create({
         
         // figure out if we need to animate
         var animate = this.animateOverride(noAnimation);
-        
+
+        this.element.classNames().remove(this.options.openedClass);        
         this.anchor.classNames().remove(this.options.openedClass);
         
         this.opened = false;
@@ -220,8 +221,10 @@ OpenMenu.Item = Class.create({
         
         // set active class if make active is true
         if (makeActive && this.anchor != null) {
+            this.element.classNames().add(this.options.activeClass);
             this.anchor.classNames().add(this.options.activeClass);
         }
+        this.element.classNames().add(this.options.openedClass);
         this.anchor.classNames().add(this.options.openedClass);
         
         // if widget exist, then make it display collapse mode
