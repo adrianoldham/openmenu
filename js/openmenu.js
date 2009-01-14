@@ -232,8 +232,10 @@ OpenMenu.Item = Class.create({
             this.element.classNames().add(this.options.activeClass);
             this.anchor.classNames().add(this.options.activeClass);
         }
-        this.element.classNames().add(this.options.openedClass);
-        this.anchor.classNames().add(this.options.openedClass);
+        if (this.hasChildren()) {            
+            this.element.classNames().add(this.options.openedClass);
+            this.anchor.classNames().add(this.options.openedClass);
+        }
         
         // if widget exist, then make it display collapse mode
         if (this.widget) {
