@@ -10,7 +10,8 @@ var OpenMenu = Class.create({
         widgetExpandedClass: "expanded",
         singleMode: true,
         animateOnLoad: false,
-        pathPrefix: ""
+        pathPrefix: "",
+        parentClass: "parent"
     },
     
     initialize: function(element, options) {
@@ -66,6 +67,12 @@ OpenMenu.Item = Class.create({
         this.setupLevel();   
         this.setupChildren();
         this.setupWidget();
+        
+        if (!this.isRoot()) {    
+            if (this.hasChildren()) {            
+                this.element.classNames().add(this.options.parentClass);
+            }
+        }
     },
     
     // Calculates the level this item is at based on parent's level (0 if root)
