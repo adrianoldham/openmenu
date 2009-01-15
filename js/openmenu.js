@@ -11,7 +11,8 @@ var OpenMenu = Class.create({
         singleMode: true,
         animateOnLoad: false,
         pathPrefix: "",
-        parentClass: "parent"
+        parentClass: "parent",
+        currentClass: "current"
     },
     
     initialize: function(element, options) {
@@ -39,7 +40,7 @@ var OpenMenu = Class.create({
         }.bind(this));
         
         // only open one if one is found
-        if (element) element.open(!this.options.animateOnLoad, true);
+        if (element) element.open(!this.options.animateOnLoad, true, true);
     },
     
     // Makes the path relative
@@ -223,7 +224,7 @@ OpenMenu.Item = Class.create({
     },
     
     // Opens the element, and makes all the children visible
-    open: function(noAnimation, makeActive) {
+    open: function(noAnimation, makeActive, isCurrent) {
         // don't do anything if already opened
         if (this.opened || this.animating) return;
         
@@ -235,6 +236,11 @@ OpenMenu.Item = Class.create({
         if (this.hasChildren()) {            
             this.element.classNames().add(this.options.openedClass);
             this.anchor.classNames().add(this.options.openedClass);
+        }
+        
+        if (isCurrent) {
+            this.element.classNames().add(this.options.currentClass);
+            this.anchor.classNames().add(this.options.currentClass);
         }
         
         // if widget exist, then make it display collapse mode
