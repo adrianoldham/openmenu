@@ -34,7 +34,7 @@ var OpenMenu = Class.create({
         // search through ALL descendants and return the one with
         // href that matches the specified href
         this.element.descendants().each(function(descendant) {
-            if (this.cleanHref(descendant.anchor.href) == this.cleanHref(href)) {
+            if (this.options.pathPrefix + this.cleanHref(descendant.anchor.href) == this.cleanHref(href)) {
                 element = descendant;
             }
         }.bind(this));
@@ -45,7 +45,7 @@ var OpenMenu = Class.create({
     
     // Makes the path relative
     cleanHref: function(href) {
-        return this.options.pathPrefix + href.replace(new RegExp('.+?://[^/]+'), "");
+        return href.replace(new RegExp('.+?://[^/]+'), "");
     }
 });
 
