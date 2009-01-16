@@ -38,14 +38,14 @@ var OpenMenu = Class.create({
                 element = descendant;
             }
         }.bind(this));
-        
+
         // only open one if one is found
         if (element) element.open(!this.options.animateOnLoad, true, true);
     },
     
     // Makes the path relative
     cleanHref: function(href) {
-        return href.replace(new RegExp('.+?://[^/]+'), "");
+        return href.replace(/\?.*/, '').replace(/^[a-z]+:\/\/[a-z0-9.-]+(?::[0-9]+)?/, '');
     }
 });
 
