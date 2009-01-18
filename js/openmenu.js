@@ -216,7 +216,7 @@ OpenMenu.Item = Class.create({
 
                     this.effect = new Effect.BlindUp(this.childrenHolder, {
                         duration: this.options.openDuration / 1000,
-                        afterFinish: function() { this.animating = false; }.bind(this)
+                        afterFinish: function() { this.animating = false; }.bind(this);
                     }); 
                 }.bind(this));
             }
@@ -286,10 +286,10 @@ OpenMenu.Item = Class.create({
 
                     this.effect = new Effect.BlindDown(this.childrenHolder, {
                         duration: this.options.openDuration / 1000,
-                        afterFinish: function() { this.animating = false; }.bind(this)
+                        afterFinish: function() { this.animating = false; }.bind(this);
                     }); 
                 }.bind(this), levelDifference * this.options.openDuration);
             }
         }
     }
-})
+});
