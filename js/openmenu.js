@@ -24,6 +24,24 @@ var OpenMenu = Class.create({
         
         // attempt to open an element that has an anchor matching the current location
         this.openElementWithHref(window.location.href);
+        this.openElementWithClass(this.options.activeClass);
+    },
+    
+    // Opens the element that has a link linking to the current location
+    // DOES NOT animate it
+    openElementWithClass: function(clazz) {
+        var element;
+        
+        // search through ALL descendants and return the one with
+        // href that matches the specified href
+        this.element.descendants().each(function(descendant) {
+            if (descendant.element.hasClassName(clazz)) {
+                element = descendant;
+            }
+        }.bind(this));
+        
+        // only open one if one is found
+        if (element) element.open(!this.options.animateOnLoad, true, true);
     },
     
     // Opens the element that has a link linking to the current location
@@ -216,7 +234,7 @@ OpenMenu.Item = Class.create({
 
                     this.effect = new Effect.BlindUp(this.childrenHolder, {
                         duration: this.options.openDuration / 1000,
-                        afterFinish: function() { this.animating = false; }.bind(this);
+                        afterFinish: function() { this.animating = false; }.bind(this)
                     }); 
                 }.bind(this));
             }
@@ -286,7 +304,7 @@ OpenMenu.Item = Class.create({
 
                     this.effect = new Effect.BlindDown(this.childrenHolder, {
                         duration: this.options.openDuration / 1000,
-                        afterFinish: function() { this.animating = false; }.bind(this);
+                        afterFinish: function() { this.animating = false; }.bind(this)
                     }); 
                 }.bind(this), levelDifference * this.options.openDuration);
             }
