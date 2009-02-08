@@ -52,6 +52,7 @@ var OpenMenu = Class.create({
         // search through ALL descendants and return the one with
         // href that matches the specified href
         this.element.descendants().each(function(descendant) {
+            if (descendant.anchor == null) return;
             if (this.options.pathPrefix + this.cleanHref(descendant.anchor.href) == this.cleanHref(href)) {
                 element = descendant;
             }
@@ -207,7 +208,8 @@ OpenMenu.Item = Class.create({
         var animate = this.animateOverride(noAnimation);
 
         this.element.classNames().remove(this.options.openedClass);        
-        this.anchor.classNames().remove(this.options.openedClass);
+        
+        if (this.anchor) this.anchor.classNames().remove(this.options.openedClass);
         
         this.opened = false;
         
@@ -247,18 +249,19 @@ OpenMenu.Item = Class.create({
         if (this.opened || this.animating) return;
         
         // set active class if make active is true
-        if (makeActive && this.anchor != null) {
+        if (makeActive) {
             this.element.classNames().add(this.options.activeClass);
-            this.anchor.classNames().add(this.options.activeClass);
+            if (this.anchor) this.anchor.classNames().add(this.options.activeClass);
         }
         if (this.hasChildren()) {            
             this.element.classNames().add(this.options.openedClass);
-            this.anchor.classNames().add(this.options.openedClass);
+            
+            if (this.anchor) this.anchor.classNames().add(this.options.openedClass);
         }
         
         if (isCurrent) {
             this.element.classNames().add(this.options.currentClass);
-            this.anchor.classNames().add(this.options.currentClass);
+            if (this.anchor) this.anchor.classNames().add(this.options.currentClass);
         }
         
         // if widget exist, then make it display collapse mode
