@@ -122,6 +122,11 @@ OpenMenu.Item = Class.create({
                     return new OpenMenu.Item(child, this.options, this);
                 }
             }.bind(this)).compact();
+            
+            if (this.children.length > 0) {
+                this.children.first().element.classNames().add('first');
+                this.children.last().element.classNames().add('last');   
+            }
         } else {
             this.children = [];
         }
