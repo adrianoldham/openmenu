@@ -12,7 +12,8 @@ var OpenMenu = Class.create({
         animateOnLoad: false,
         pathPrefix: "",
         parentClass: "parent",
-        currentClass: "current"
+        currentClass: "current",
+        autoOpenMode: "both" // either "location", "class" or "both"
     },
     
     initialize: function(element, options) {
@@ -22,9 +23,11 @@ var OpenMenu = Class.create({
         this.element = $(element);
         this.element = new OpenMenu.Item(element, this.options);
         
+        var mode = this.options.autoOpenMode.toLowerCase();
+        
         // attempt to open an element that has an anchor matching the current location
-        this.openElementWithHref(window.location.href);
-        this.openElementWithClass(this.options.activeClass);
+        if (mode == "both" || mode == "location") { this.openElementWithHref(window.location.href); }
+        if (mode == "both" || mode == "class") { this.openElementWithClass(this.options.activeClass); }
     },
     
     // Opens the element that has a link linking to the current location
